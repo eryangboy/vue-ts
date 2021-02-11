@@ -29,3 +29,14 @@ export const saveOrUpdateLesson = (data: any) => {
         data
     });
 }
+
+// 获取课程单个章节内容
+export const getBySectionId = (sectionId: number | string) => {
+    return request({
+        method: "get",
+        url: "/boss/course/section/getBySectionId",
+        params: {
+            sectionId
+        }
+    });
+}
