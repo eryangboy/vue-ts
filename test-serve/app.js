@@ -1,20 +1,22 @@
 const express = require("express");
+const app = express();
 const path = require("path");
 const { createProxyMiddleware } = require("http-proxy-middleware");
-const app = express();
 
 app.use(express.static(path.join(__dirname, "../dist")));
+
 app.use(
   "/boss",
   createProxyMiddleware({
-    target: 'http://eduboss.lagou.com"',
+    target: "http://eduboss.lagou.com",
     changeOrigin: true,
   })
 );
+
 app.use(
-  "/boss",
+  "/front",
   createProxyMiddleware({
-    target: 'http://eduboss.lagou.com"',
+    target: "http://edufront.lagou.com",
     changeOrigin: true,
   })
 );
